@@ -1,4 +1,5 @@
-import User, { findOne } from '../models/User';
+import User from '../models/User.js';
+import jwt from 'jsonwebtoken';
 
 export async function signup(req, res) {
   const { email, password } = req.body;
@@ -14,8 +15,9 @@ export async function signup(req, res) {
 
 export async function login(req, res) {
   const { email, password } = req.body;
+  // email = email.toLowerCase();
   try {
-    const user = await findOne({ email });
+    const user = await User.findOne({ email });
     if (!user || !(await user.comparePassword(password))) {
       return res.status(401).json({ message: 'Invalid email or password' });
     }

@@ -1,4 +1,4 @@
-import { post } from 'axios';
+import axios from 'axios';
 
 export async function getPlaces(req, res) {
   const { destinationCountry, budget, travelStyle, interestsNew, accommodationType, transportationType, activityType, cuisineType, tripDuration, language } = req.body;
@@ -6,7 +6,7 @@ export async function getPlaces(req, res) {
   const prompt = `Generate a personalized travel itinerary for a trip to ${destinationCountry} with a budget of ${budget}. The traveler is interested in a ${travelStyle} vacation and enjoys ${interestsNew}. They are looking for ${accommodationType} accommodations and prefer ${transportationType} transportation. The itinerary should include ${activityType} activities and ${cuisineType} dining options. Please provide a detailed itinerary with daily recommendations for ${tripDuration} days, including suggested destinations, activities, and dining options. The itinerary should be written in ${language}.`;
 
   try {
-    const response = await post(
+    const response = await axios.post(
       'https://api.groq.com/openai/v1/chat/completions',
       {
         messages: [{ role: 'user', content: prompt }],
@@ -25,3 +25,20 @@ export async function getPlaces(req, res) {
     res.status(500).json({ message: 'Error generating itinerary', error });
   }
 }
+
+/*
+
+{ 
+  "destinationCountry": "Japan", 
+  "budget": "5000", 
+  "travelStyle": "relaxing", 
+  "interestsNew": "nature", 
+  "accommodationType": "hotel", 
+  "transportationType": "public transportation", 
+  "activityType": "outdoor", 
+  "cuisineType": "local", 
+  "tripDuration": "5", 
+  "language": "English"
+}
+
+*/

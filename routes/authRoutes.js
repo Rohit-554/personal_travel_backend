@@ -1,6 +1,6 @@
 import { Router } from 'express';
 const router = Router();
-import { signup, login, continueWithoutSignup } from '../controllers/authController';
+import { signup, login, continueWithoutSignup } from '../controllers/authController.js';
 
 // Define routes for signup, login, and continue without signup
 router.post('/signup', signup);

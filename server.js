@@ -4,6 +4,9 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 
+// Import routes using ES module syntax
+import authRoutes from './routes/authRoutes.js'; // Use import instead of require
+import itineraryRoutes from './routes/itineraryRoutes.js'; // Use import instead of require
 // Load environment variables from .env file
 dotenv.config();
 
@@ -22,9 +25,6 @@ connect(process.env.MONGODB_URI, {
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log('MongoDB connection error:', err));
 
-// Import routes using ES module syntax
-import authRoutes from './routes/authRoutes.js'; // Use import instead of require
-import itineraryRoutes from './routes/itineraryRoutes.js'; // Use import instead of require
 
 // Use routes
 app.use('/api/auth', authRoutes);
@@ -34,3 +34,8 @@ app.use('/api', itineraryRoutes);
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
+
+app.get('/', (req, res) => {
+  res.json({ message: 'Server is running' });
+});
+
