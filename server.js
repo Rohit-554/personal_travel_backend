@@ -26,12 +26,6 @@ const connectDB = async () => {
 };
 
 connectDB();
-// connect(`${process.env.MONGODB_URI}/Personal_Travel`, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// })
-//   .then(() => console.log('MongoDB connected'))
-//   .catch(err => console.log('MongoDB connection error:', err));
 
 
 app.use('/api/auth', authRoutes);
