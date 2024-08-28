@@ -9,6 +9,7 @@ export async function signup(req, res) {
     const token = user.generateToken();
     res.status(201).json({ token });
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: 'Error signing up', error });
   }
 }

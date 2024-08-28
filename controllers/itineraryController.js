@@ -14,11 +14,15 @@ The response should be in the following fixed JSON format:
 {
   "destinationCountry": "${destinationCountry}",
   "budget": "${budget}",
+  "tripDuration": "${tripDuration}",
   "travelStyle": "${travelStyle}",
   "interests": "${interestsNew}",
   "accommodationType": "${accommodationType}",
   "transportationType": "${transportationType}",
   "itinerary": [
+    // Ensure to include each day until ${tripDuration} days in the itinerary array.
+    // Each day should have a unique "day" and "date".
+    // Example for one day:
     {
       "day": 1,
       "date": "YYYY-MM-DD",
@@ -46,12 +50,11 @@ The response should be in the following fixed JSON format:
         "costPerNight": "Cost per night"
       }
     },
-    // Repeat for each day up to ${tripDuration}
+    // Include each day until ${tripDuration} days in the itinerary array.
   ],
   "language": "${language}"
 }
-
-Ensure the response adheres to this JSON structure exactly.
+// Make sure the response adheres to this JSON structure exactly, with entries for each day of the trip.
 `;
 
   try {
@@ -59,7 +62,7 @@ Ensure the response adheres to this JSON structure exactly.
       'https://api.groq.com/openai/v1/chat/completions',
       {
         messages: [{ role: 'user', content: prompt }],
-        model: 'llama3-8b-8192'
+        model: 'llama3-70b-8192'
       },
       {
         headers: {
