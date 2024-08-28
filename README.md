@@ -8,6 +8,9 @@ The backend built for **[Trip Sage](https://github.com/Rohit-554/TripSage-fronte
 
    ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white) ![Express.js](https://img.shields.io/badge/Express.js-000000?style=flat&logo=express&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=flat&logo=mongodb&logoColor=white) ![GROQ API](https://img.shields.io/badge/GROQ-1E4C5F?style=flat&logo=google&logoColor=white)
 
+## Overview
+![Trip Sage](https://github.com/user-attachments/assets/9181de2f-5000-4988-b611-03b0f1c78bb7)
+
 
 ## Features
 
